@@ -33,6 +33,7 @@ import javax.swing.JSplitPane;
 
 import abstractgame.map.AbstractMap;
 import abstractgame.test.HexGameMap;
+import abstractgame.test.SquareGameMap;
 import abstractgame.view.AbstractFieldView;
 
 /**
@@ -57,11 +58,11 @@ public class EditorFrame extends JFrame implements MouseListener {
         JFrame frame = new JFrame();
         JScrollPane scrollpane = new JScrollPane();
         JSplitPane splitPane = new JSplitPane();
-        // AbstractMap mapModel = new OctagonGameMap(50, 50);
-        // AbstractMap mapModel = new SquareGameMap(20, 20);
-        // SquareGameMapView mapView = new SquareGameMapView(mapModel, 40, ef);
-        AbstractMap mapModel = new HexGameMap(20, 20);
-        HexGameMapView mapView = new HexGameMapView(mapModel, 40, ef);
+        AbstractMap mapModel = new SquareGameMap(20, 20);
+        SquareGameMapView mapView = new SquareGameMapView(mapModel);
+        //AbstractMap mapModel = new HexGameMap(20, 20);
+        //HexGameMapView mapView = new HexGameMapView(mapModel);
+        mapView.initialize(40, ef);
 
         frame.setBounds(0, 0, 1000, 740);
 
@@ -149,13 +150,13 @@ public class EditorFrame extends JFrame implements MouseListener {
             g.fill(((AbstractFieldView) e.getComponent()).getShape());
             try {
                 ImageIO.write((BufferedImage) bi, "png", new File(
-                        "util/game/view/test/test.png"));
+                        "save_pic.png"));
             } catch (IOException e1) {
                 e1.printStackTrace();
             }
         }
         if (e.getButton() == MouseEvent.BUTTON3) {
-            File file = new File("util/game/view/test/mountain.png");
+            File file = new File("pics/mountain.png");
             try {
                 BufferedImage bi = ImageIO.read(file);
                 field.setImage(bi);

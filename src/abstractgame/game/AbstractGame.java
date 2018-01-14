@@ -53,22 +53,22 @@ public abstract class AbstractGame implements Serializable {
     /**
      * The players.
      */
-    private final HashMap<String, AbstractPlayer> players = new HashMap<String, AbstractPlayer>();
+    private final HashMap<String, AbstractPlayer> players = new HashMap<>();
 
     /**
      * The unit added to game listener.
      */
-    private final HashSet<UnitAddedToGameListener> unitAddedToGameListener = new HashSet<UnitAddedToGameListener>();
+    private final HashSet<UnitAddedToGameListener> unitAddedToGameListener = new HashSet<>();
 
     /**
      * The unit removed from game listener.
      */
-    private final HashSet<UnitRemovedFromGameListener> unitRemovedFromGameListener = new HashSet<UnitRemovedFromGameListener>();
+    private final HashSet<UnitRemovedFromGameListener> unitRemovedFromGameListener = new HashSet<>();
 
     /**
      * The units.
      */
-    private final HashSet<AbstractUnit> units = new HashSet<AbstractUnit>();
+    private final HashSet<AbstractUnit> units = new HashSet<>();
 
     /**
      * Instantiates a new abstract game.
@@ -154,7 +154,7 @@ public abstract class AbstractGame implements Serializable {
      *
      * @return the arbiter
      */
-    public AbstractArbiter getArbiter() {
+    public final AbstractArbiter getArbiter() {
         return this.arbiter;
     }
 
@@ -163,7 +163,7 @@ public abstract class AbstractGame implements Serializable {
      *
      * @return the map
      */
-    public AbstractMap getMap() {
+    public final AbstractMap getMap() {
         return this.map;
     }
 
@@ -172,7 +172,7 @@ public abstract class AbstractGame implements Serializable {
      *
      * @return the players
      */
-    public HashMap<String, AbstractPlayer> getPlayers() {
+    public final HashMap<String, AbstractPlayer> getPlayers() {
         return players;
     }
 
@@ -181,7 +181,7 @@ public abstract class AbstractGame implements Serializable {
      *
      * @return the units
      */
-    public HashSet<AbstractUnit> getUnits() {
+    public final HashSet<AbstractUnit> getUnits() {
         return units;
     }
 
@@ -242,7 +242,7 @@ public abstract class AbstractGame implements Serializable {
      *
      * @param arbiter the new arbiter
      */
-    public void setArbiter(AbstractArbiter arbiter) {
+    public final void setArbiter(AbstractArbiter arbiter) {
         this.arbiter = arbiter;
     }
 
@@ -251,7 +251,7 @@ public abstract class AbstractGame implements Serializable {
      *
      * @param map the new map
      */
-    public void setMap(AbstractMap map) {
+    public final void setMap(AbstractMap map) {
         this.map = map;
         this.map.setGame(this);
     }

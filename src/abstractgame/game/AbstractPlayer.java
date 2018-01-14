@@ -60,7 +60,7 @@ public abstract class AbstractPlayer implements Serializable {
      */
     public AbstractPlayer(String name, AbstractGame game) {
         super();
-        this.units = new HashSet<AbstractUnit>();
+        this.units = new HashSet<>();
         this.name = name;
         this.setGame(game);
     }
@@ -110,7 +110,7 @@ public abstract class AbstractPlayer implements Serializable {
      *
      * @return the game
      */
-    public AbstractGame getGame() {
+    public final AbstractGame getGame() {
         return game;
     }
 
@@ -119,7 +119,7 @@ public abstract class AbstractPlayer implements Serializable {
      *
      * @return the name
      */
-    public String getName() {
+    public final String getName() {
         return name;
     }
 
@@ -128,7 +128,7 @@ public abstract class AbstractPlayer implements Serializable {
      *
      * @return the units
      */
-    public HashSet<AbstractUnit> getUnits() {
+    public final HashSet<AbstractUnit> getUnits() {
         return units;
     }
 
@@ -174,7 +174,7 @@ public abstract class AbstractPlayer implements Serializable {
      *
      * @param game the new game
      */
-    public void setGame(AbstractGame game) {
+    public final void setGame(AbstractGame game) {
         AbstractGame previousGame = this.game;
         this.game = game;
 
@@ -192,7 +192,7 @@ public abstract class AbstractPlayer implements Serializable {
      *
      * @param name the new name
      */
-    public void setName(String name) {
+    public final void setName(String name) {
         this.name = name;
     }
 

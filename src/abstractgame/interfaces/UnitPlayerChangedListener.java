@@ -22,9 +22,8 @@ import abstractgame.events.unitevents.UnitPlayerChangedEvent;
  * The listener interface for receiving unitPlayerChanged events. The class that
  * is interested in processing a unitPlayerChanged event implements this
  * interface, and the object created with that class is registered with a
- * component using the component's addUnitPlayerChangedListener method. When
- * the unitPlayerChanged event occurs, that object's appropriate
- * method is invoked.
+ * component using the component's addUnitPlayerChangedListener method. When the
+ * unitPlayerChanged event occurs, that object's appropriate method is invoked.
  *
  * @see UnitPlayerChangedEvent
  */

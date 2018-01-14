@@ -22,9 +22,8 @@ import abstractgame.events.gameevents.UnitAddedToGameEvent;
  * The listener interface for receiving unitAddedToGame events. The class that
  * is interested in processing a unitAddedToGame event implements this
  * interface, and the object created with that class is registered with a
- * component using the component's addUnitAddedToGameListener method. When
- * the unitAddedToGame event occurs, that object's appropriate
- * method is invoked.
+ * component using the component's addUnitAddedToGameListener method. When the
+ * unitAddedToGame event occurs, that object's appropriate method is invoked.
  *
  * @see UnitAddedToGameEvent
  */

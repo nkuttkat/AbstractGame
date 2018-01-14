@@ -16,13 +16,12 @@
  */
 package abstractgame.view.test;
 
-import java.awt.event.MouseListener;
-
 import abstractgame.map.AbstractField;
 import abstractgame.map.AbstractMap;
 import abstractgame.map.HexField;
 import abstractgame.view.HexMapView;
 import abstractgame.view.HexView;
+import java.awt.event.MouseListener;
 
 /**
  * The Class HexGameMapView.
@@ -40,15 +39,20 @@ public class HexGameMapView extends HexMapView {
      * Instantiates a new hex game map view.
      *
      * @param model the model
-     * @param fieldSize the field size
-     * @param listener the listener
      */
-    public HexGameMapView(AbstractMap model, int fieldSize,
-            MouseListener listener) {
-        super(model, fieldSize);
+    public HexGameMapView(AbstractMap model) {
+        super(model);
+    }
+
+    public void initialize(int fieldSize, MouseListener mouseListener) {
+        super.initialize(fieldSize);
+
         for (AbstractField[] fieldArray : this.getModel().getFields()) {
             for (AbstractField field : fieldArray) {
-                this.add(new HexView((HexField) field, fieldSize));
+                HexView hexView = new HexView((HexField) field);
+                hexView.initialize(fieldSize);
+                hexView.addMouseListener(mouseListener);
+                this.add(hexView);
             }
         }
     }

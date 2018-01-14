@@ -35,11 +35,9 @@ public abstract class HexMapView extends MapView {
      * Instantiates a new hex map view.
      *
      * @param model the model
-     * @param fieldSize the field size
      */
-    public HexMapView(AbstractMap model, int fieldSize) {
+    public HexMapView(AbstractMap model) {
         super(model);
-        this.initialize(fieldSize);
     }
 
     /**
@@ -48,7 +46,8 @@ public abstract class HexMapView extends MapView {
      * @param sideLength the side length {@link HexView}'s dimensions.
      */
     protected void initialize(int sideLength) {
-        HexView prototype = new HexView(sideLength);
+        HexView prototype = new HexView(null);
+        prototype.initialize(sideLength);
         int width, height;
         width = (int) Math.round(this.getModel().getFields().length
                 * ((prototype.getWidth() - 1) * 0.75))
@@ -58,5 +57,6 @@ public abstract class HexMapView extends MapView {
         this.setPreferredSize(this.getSize());
         this.setMinimumSize(this.getSize());
         this.setMaximumSize(this.getSize());
+        this.setLayout(null);
     }
 }

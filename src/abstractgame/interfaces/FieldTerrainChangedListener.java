@@ -23,8 +23,8 @@ import abstractgame.events.fieldevents.FieldTerrainChangedEvent;
  * that is interested in processing a fieldTerrainChanged event implements this
  * interface, and the object created with that class is registered with a
  * component using the component's addFieldTerrainChangedListener method. When
- * the fieldTerrainChanged event occurs, that object's appropriate
- * method is invoked.
+ * the fieldTerrainChanged event occurs, that object's appropriate method is
+ * invoked.
  *
  * @see FieldTerrainChangedEvent
  */

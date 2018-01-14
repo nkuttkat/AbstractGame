@@ -42,28 +42,25 @@ public class Square extends SquareView {
      * Instantiates a new square.
      *
      * @param model the model
-     * @param sideLength the side length
-     * @param listener the listener
      */
-    public Square(AbstractField model, int sideLength, MouseListener listener) {
-        super(model, sideLength);
-        this.initialize(listener);
+    public Square(AbstractField model) {
+        super(model);
     }
 
     /**
      * Initialize.
      *
-     * @param listener the listener
+     * @param sideLength
      */
-    public void initialize(MouseListener listener) {
-        this.addMouseListener(listener);
-        this.showBorder(true);
-        BufferedImage image = new BufferedImage(this.getWidth(),
+    @Override
+    public void initialize(int sideLength) {
+        super.initialize(sideLength);
+        BufferedImage localImage = new BufferedImage(this.getWidth(),
                 this.getHeight(), BufferedImage.TYPE_INT_ARGB);
-        Graphics2D g = image.createGraphics();
+        Graphics2D g = localImage.createGraphics();
         g.setColor(this.getForeground());
         g.fill(this.getShape());
-        this.setImage(image);
+        this.setImage(localImage);
     }
 
     /*
@@ -73,8 +70,10 @@ public class Square extends SquareView {
      */
     @Override
     protected void paintComponent(Graphics g) {
-        Graphics2D graphics = (Graphics2D) g;
+        super.paintComponent(g);
+        Graphics2D graphics = (Graphics2D) g.create();
         graphics.drawImage(image, null, 0, 0);
+        graphics.dispose();
     }
 
     /**
@@ -88,5 +87,6 @@ public class Square extends SquareView {
                 1.0f);
         Graphics2D g = this.image.createGraphics();
         g.setComposite(ac);
+        g.dispose();
     }
 }

@@ -22,9 +22,8 @@ import abstractgame.events.unitevents.UnitMovedEvent;
  * The listener interface for receiving unitMoved events. The class that is
  * interested in processing a unitMoved event implements this interface, and the
  * object created with that class is registered with a component using the
- * component's addUnitMovedListener method. When
- * the unitMoved event occurs, that object's appropriate
- * method is invoked.
+ * component's addUnitMovedListener method. When the unitMoved event occurs,
+ * that object's appropriate method is invoked.
  *
  * @see UnitMovedEvent
  */

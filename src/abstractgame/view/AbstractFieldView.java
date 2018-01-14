@@ -70,10 +70,6 @@ public abstract class AbstractFieldView extends JComponent implements
 
     public AbstractFieldView(AbstractField model) {
         this.setModel(model);
-        this.setLayout(null);
-        this.setBorderColor(Color.BLACK);
-        this.setForeground(Color.LIGHT_GRAY);
-        this.showBorder(true);
     }
 
     @Override
@@ -107,7 +103,7 @@ public abstract class AbstractFieldView extends JComponent implements
      *
      * @return the model
      */
-    public AbstractField getModel() {
+    public final AbstractField getModel() {
         return model;
     }
 
@@ -125,7 +121,7 @@ public abstract class AbstractFieldView extends JComponent implements
      *
      * @param sideLength the side length
      */
-    protected abstract void initialize(int sideLength);
+    public abstract void initialize(int sideLength);
 
     @Override
     protected void paintBorder(Graphics g) {
@@ -163,7 +159,7 @@ public abstract class AbstractFieldView extends JComponent implements
      *
      * @param model the new model
      */
-    public void setModel(AbstractField model) {
+    public final void setModel(AbstractField model) {
         AbstractField oldModel = this.model;
         this.model = model;
 

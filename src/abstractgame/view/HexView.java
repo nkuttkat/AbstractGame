@@ -21,6 +21,7 @@ import java.awt.Point;
 import java.awt.Polygon;
 
 import abstractgame.map.HexField;
+import java.awt.Color;
 
 /**
  * The Class HexView is a graphical representation of a hexagonal
@@ -36,20 +37,9 @@ public class HexView extends AbstractFieldView {
      * Instantiates a new hex view.
      *
      * @param model the model
-     * @param sideLength the side length
      */
-    public HexView(HexField model, int sideLength) {
+    public HexView(HexField model) {
         super(model);
-        this.initialize(sideLength);
-    }
-
-    /**
-     * Instantiates a new hex view.
-     *
-     * @param sideLength the side length
-     */
-    public HexView(int sideLength) {
-        this(null, sideLength);
     }
 
     /*
@@ -58,12 +48,15 @@ public class HexView extends AbstractFieldView {
 	 * @see util.game.view.FieldView#initialize(int)
      */
     @Override
-    protected void initialize(int sideLength) {
+    public void initialize(int sideLength) {
         this.setShape(new Polygon());
         this.setSize(2 * sideLength + 1, (int) (Math.round(Math.sin(Math.PI / 3) * sideLength) * 2) + 1);
         this.setMinimumSize(this.getSize());
         this.setMaximumSize(this.getSize());
         this.setPreferredSize(this.getSize());
+        this.setBorderColor(Color.BLACK);
+        this.setForeground(Color.LIGHT_GRAY);
+        this.showBorder(true);
         int height = this.getHeight() - 1;
         // calculate the position of the six corners based on the side length
         ((Polygon) this.getShape()).addPoint(Math.round(sideLength / 2), 0);

@@ -38,7 +38,8 @@ public class TestOctagonMapView extends JFrame {
         JFrame frame = new JFrame();
         OctagonGameMap mapModel = new OctagonGameMap(40, 40);
         JScrollPane scrollPane = new JScrollPane();
-        SquareGameMapView map = new SquareGameMapView(mapModel, 40, null);
+        SquareGameMapView map = new SquareGameMapView(mapModel);
+        map.initialize(35);
         scrollPane.setViewportView(map);
         frame.add(scrollPane);
         frame.setBounds(0, 0, 1000, 740);

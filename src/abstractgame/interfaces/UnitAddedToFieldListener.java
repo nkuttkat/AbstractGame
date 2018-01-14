@@ -22,9 +22,8 @@ import abstractgame.events.fieldevents.UnitAddedToFieldEvent;
  * The listener interface for receiving unitAddedToField events. The class that
  * is interested in processing a unitAddedToField event implements this
  * interface, and the object created with that class is registered with a
- * component using the component's addUnitAddedToFieldListener method. When
- * the unitAddedToField event occurs, that object's appropriate
- * method is invoked.
+ * component using the component's addUnitAddedToFieldListener method. When the
+ * unitAddedToField event occurs, that object's appropriate method is invoked.
  *
  * @see UnitAddedToFieldEvent
  */

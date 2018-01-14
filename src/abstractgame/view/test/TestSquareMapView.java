@@ -43,12 +43,12 @@ public class TestSquareMapView extends JFrame {
         JFrame frame = new JFrame();
         SquareGameMap mapModel = new SquareGameMap(50, 50);
         JScrollPane scrollPane = new JScrollPane();
-        SquareMapView map = new SquareGameMapView(mapModel, 70, null);
+        SquareGameMapView map = new SquareGameMapView(mapModel);
+        map.initialize(70, null);
         scrollPane.setViewportView(map);
         frame.add(scrollPane);
         frame.setBounds(0, 0, 1000, 740);
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
         frame.setVisible(true);
     }
-
 }

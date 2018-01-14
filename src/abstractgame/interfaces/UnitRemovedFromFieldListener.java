@@ -23,8 +23,8 @@ import abstractgame.events.fieldevents.UnitRemovedFromFieldEvent;
  * that is interested in processing a unitRemovedFromField event implements this
  * interface, and the object created with that class is registered with a
  * component using the component's addUnitRemovedFromFieldListener method. When
- * the unitRemovedFromField event occurs, that object's appropriate
- * method is invoked.
+ * the unitRemovedFromField event occurs, that object's appropriate method is
+ * invoked.
  *
  * @see UnitRemovedFromFieldEvent
  */

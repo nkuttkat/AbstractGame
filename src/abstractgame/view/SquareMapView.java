@@ -35,11 +35,9 @@ public abstract class SquareMapView extends MapView {
      * Instantiates a new square map view.
      *
      * @param model the model
-     * @param fieldSize the field size
      */
-    public SquareMapView(AbstractMap model, int fieldSize) {
+    public SquareMapView(AbstractMap model) {
         super(model);
-        this.initialize(fieldSize);
     }
 
     /**
@@ -47,13 +45,15 @@ public abstract class SquareMapView extends MapView {
      *
      * @param fieldSize the field size
      */
-    protected void initialize(int fieldSize) {
-        SquareView prototype = new SquareView(fieldSize);
+    public void initialize(int fieldSize) {
+        SquareView prototype = new SquareView(null);
+        prototype.initialize(fieldSize);
         this.setSize(this.getModel().getFields().length * (prototype.getWidth() - 1) + 1,
                 this.getModel().getFields()[0].length * (prototype.getHeight() - 1) + 1);
         this.setPreferredSize(this.getSize());
         this.setMinimumSize(this.getSize());
         this.setMaximumSize(this.getSize());
+        this.setLayout(null);
     }
 
 }

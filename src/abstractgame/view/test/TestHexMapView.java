@@ -38,7 +38,8 @@ public class TestHexMapView extends JFrame {
         JFrame frame = new JFrame();
         HexGameMap mapModel = new HexGameMap(21, 35);
         JScrollPane scrollPane = new JScrollPane();
-        HexGameMapView map = new HexGameMapView(mapModel, 40, null);
+        HexGameMapView map = new HexGameMapView(mapModel);
+        map.initialize(40, null);
         scrollPane.setViewportView(map);
         frame.add(scrollPane);
         frame.setBounds(0, 0, 1000, 740);

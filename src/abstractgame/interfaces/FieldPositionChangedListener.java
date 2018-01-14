@@ -23,8 +23,8 @@ import abstractgame.events.fieldevents.FieldPositionChangedEvent;
  * that is interested in processing a fieldPositionChanged event implements this
  * interface, and the object created with that class is registered with a
  * component using the component's addFieldPositionChangedListener method. When
- * the fieldPositionChanged event occurs, that object's appropriate
- * method is invoked.
+ * the fieldPositionChanged event occurs, that object's appropriate method is
+ * invoked.
  *
  * @see FieldPositionChangedEvent
  */

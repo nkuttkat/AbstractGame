@@ -23,8 +23,8 @@ import abstractgame.events.unitevents.UnitDirectionChangedEvent;
  * that is interested in processing a unitDirectionChanged event implements this
  * interface, and the object created with that class is registered with a
  * component using the component's addUnitDirectionChangedListener method. When
- * the unitDirectionChanged event occurs, that object's appropriate
- * method is invoked.
+ * the unitDirectionChanged event occurs, that object's appropriate method is
+ * invoked.
  *
  * @see UnitDirectionChangedEvent
  */

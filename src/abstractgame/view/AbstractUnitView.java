@@ -91,7 +91,7 @@ public abstract class AbstractUnitView extends JComponent implements
      *
      * @return the model
      */
-    public AbstractUnit getModel() {
+    public final AbstractUnit getModel() {
         return model;
     }
 
@@ -118,7 +118,7 @@ public abstract class AbstractUnitView extends JComponent implements
      *
      * @param model the new model
      */
-    public void setModel(AbstractUnit model) {
+    public final void setModel(AbstractUnit model) {
         AbstractUnit oldModel = this.model;
         this.model = model;
 

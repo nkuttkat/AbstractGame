@@ -71,7 +71,7 @@ public abstract class AbstractUnit implements Serializable,
     /**
      * The accessible terrains.
      */
-    private HashMap<Enum<?>, Double> accessibleTerrains = new HashMap<Enum<?>, Double>();
+    private final HashMap<Enum<?>, Double> accessibleTerrains = new HashMap<>();
 
     /**
      * The current health.
@@ -131,17 +131,17 @@ public abstract class AbstractUnit implements Serializable,
     /**
      * The unit direction changed listener.
      */
-    private HashSet<UnitDirectionChangedListener> unitDirectionChangedListener = new HashSet<UnitDirectionChangedListener>();
+    private final HashSet<UnitDirectionChangedListener> unitDirectionChangedListener = new HashSet<>();
 
     /**
      * The unit moved listener.
      */
-    private HashSet<UnitMovedListener> unitMovedListener = new HashSet<UnitMovedListener>();
+    private final HashSet<UnitMovedListener> unitMovedListener = new HashSet<>();
 
     /**
      * The unit player changed listener.
      */
-    private HashSet<UnitPlayerChangedListener> unitPlayerChangedListener = new HashSet<UnitPlayerChangedListener>();
+    private final HashSet<UnitPlayerChangedListener> unitPlayerChangedListener = new HashSet<>();
 
     /**
      * The view.
@@ -192,7 +192,7 @@ public abstract class AbstractUnit implements Serializable,
      * @param terrain the terrain
      * @param terrainModifier the terrainModifier
      */
-    public void addTerrain(Enum<?> terrain, int terrainModifier) {
+    public final void addTerrain(Enum<?> terrain, int terrainModifier) {
         this.addTerrain(terrain, (double) terrainModifier);
     }
 
@@ -283,9 +283,9 @@ public abstract class AbstractUnit implements Serializable,
      * @param previousDirection the previous direction
      */
     protected void fireUnitDirectionChangedEvent(int previousDirection) {
-        for (UnitDirectionChangedListener listener : this.unitDirectionChangedListener) {
+        this.unitDirectionChangedListener.forEach((listener) -> {
             listener.unitDirectionChanged(new UnitDirectionChangedEvent(this, previousDirection));
-        }
+        });
     }
 
     /**
@@ -293,9 +293,9 @@ public abstract class AbstractUnit implements Serializable,
      *
      */
     protected void fireUnitMovedEvent() {
-        for (UnitMovedListener listener : this.unitMovedListener) {
+        this.unitMovedListener.forEach((listener) -> {
             listener.unitMoved(new UnitMovedEvent(this));
-        }
+        });
     }
 
     /**
@@ -303,9 +303,9 @@ public abstract class AbstractUnit implements Serializable,
      *
      */
     protected void fireUnitPlayerChangedEvent() {
-        for (UnitPlayerChangedListener listener : this.unitPlayerChangedListener) {
+        this.unitPlayerChangedListener.forEach((listener) -> {
             listener.unitPlayerChanged(new UnitPlayerChangedEvent(this));
-        }
+        });
     }
 
     /**
@@ -632,7 +632,7 @@ public abstract class AbstractUnit implements Serializable,
      *
      * @param game the new game
      */
-    public void setGame(AbstractGame game) {
+    public final void setGame(AbstractGame game) {
         this.game = game;
 
         if (!this.game.getUnits().contains(this)) {
@@ -672,7 +672,7 @@ public abstract class AbstractUnit implements Serializable,
      *
      * @param player the new player
      */
-    public void setPlayer(AbstractPlayer player) {
+    public final void setPlayer(AbstractPlayer player) {
         if (this.player != player) {
             // remember the old player and set the new one
             AbstractPlayer previousPlayer = this.player;

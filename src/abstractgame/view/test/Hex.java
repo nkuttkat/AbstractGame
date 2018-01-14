@@ -40,13 +40,9 @@ public class Hex extends HexView {
      * Instantiates a new hex.
      *
      * @param model the model
-     * @param sideLength the side length
-     * @param listener the listener
      */
-    public Hex(HexField model, int sideLength, MouseListener listener) {
-        super(model, sideLength);
-        this.addMouseListener(listener);
-        this.showBorder(true);
+    public Hex(HexField model) {
+        super(model);
     }
 
     /**

@@ -16,11 +16,12 @@
  */
 package abstractgame.view;
 
+import abstractgame.map.AbstractField;
 import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.Rectangle;
 
-import abstractgame.map.AbstractField;
+import java.awt.Color;
 
 /**
  * The Class HexView is a graphical representation of a square or octagonal
@@ -36,20 +37,9 @@ public class SquareView extends AbstractFieldView {
      * Instantiates a new square view.
      *
      * @param model the model
-     * @param sideLength the side length
      */
-    public SquareView(AbstractField model, int sideLength) {
+    public SquareView(AbstractField model) {
         super(model);
-        this.initialize(sideLength);
-    }
-
-    /**
-     * Instantiates a new square view.
-     *
-     * @param sideLength the side length
-     */
-    public SquareView(int sideLength) {
-        this(null, sideLength);
     }
 
     /*
@@ -58,12 +48,15 @@ public class SquareView extends AbstractFieldView {
 	 * @see util.game.view.FieldView#initialize(int)
      */
     @Override
-    protected void initialize(int sideLength) {
+    public void initialize(int sideLength) {
         this.setShape(new Rectangle(sideLength, sideLength));
         this.setSize(sideLength + 1, sideLength + 1);
         this.setMinimumSize(this.getSize());
         this.setMaximumSize(this.getSize());
         this.setPreferredSize(this.getSize());
+        this.setBorderColor(Color.BLACK);
+        this.setForeground(Color.LIGHT_GRAY);
+        this.showBorder(true);
     }
 
     /*

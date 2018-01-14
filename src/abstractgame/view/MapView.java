@@ -46,7 +46,6 @@ public abstract class MapView extends JPanel {
      */
     public MapView(AbstractMap model) {
         this.model = model;
-        this.setLayout(null);
     }
 
     /**
@@ -54,7 +53,7 @@ public abstract class MapView extends JPanel {
      *
      * @return the model
      */
-    public AbstractMap getModel() {
+    public final AbstractMap getModel() {
         return model;
     }
 
@@ -63,7 +62,7 @@ public abstract class MapView extends JPanel {
      *
      * @param model the new model
      */
-    public void setModel(AbstractMap model) {
+    public final void setModel(AbstractMap model) {
         this.model = model;
     }
 }

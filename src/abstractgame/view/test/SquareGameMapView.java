@@ -39,15 +39,20 @@ public class SquareGameMapView extends SquareMapView {
      * Instantiates a new square game map view.
      *
      * @param model the model
-     * @param fieldSize the field size
-     * @param listener the listener
      */
-    public SquareGameMapView(AbstractMap model, int fieldSize,
-            MouseListener listener) {
-        super(model, fieldSize);
+    public SquareGameMapView(AbstractMap model) {
+        super(model);
+    }
+
+    public void initialize(int fieldSize, MouseListener mouseListener) {
+        super.initialize(fieldSize);
+
         for (AbstractField[] fieldArray : this.getModel().getFields()) {
             for (AbstractField field : fieldArray) {
-                this.add(new SquareView(field, fieldSize));
+                Square squareView = new Square(field);
+                squareView.initialize(fieldSize);
+                squareView.addMouseListener(mouseListener);
+                this.add(squareView);
             }
         }
     }
