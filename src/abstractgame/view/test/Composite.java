@@ -139,7 +139,7 @@ public class Composite extends JApplet implements ItemListener {
         a.gridwidth = GridBagConstraints.RELATIVE;
         a.weightx = 1.0;
         a.fill = GridBagConstraints.BOTH;
-        alphas = new JComboBox<String>();
+        alphas = new JComboBox<>();
         layOut.setConstraints(alphas, a);
         alphas.addItem("1.0");
         alphas.addItem("0.75");
@@ -150,7 +150,7 @@ public class Composite extends JApplet implements ItemListener {
         getContentPane().add(alphas);
 
         a.gridwidth = GridBagConstraints.REMAINDER;
-        rules = new JComboBox<String>();
+        rules = new JComboBox<>();
         layOut.setConstraints(rules, a);
         rules.addItem("SRC");
         rules.addItem("DST_IN");

@@ -67,7 +67,7 @@ public abstract class AbstractField extends GraphNode implements Serializable {
     /**
      * The position changed listener.
      */
-    private HashSet<FieldPositionChangedListener> positionChangedListener = new HashSet<FieldPositionChangedListener>();
+    private final HashSet<FieldPositionChangedListener> positionChangedListener = new HashSet<>();
 
     /**
      * The terrain.
@@ -77,22 +77,22 @@ public abstract class AbstractField extends GraphNode implements Serializable {
     /**
      * The terrain changed listener.
      */
-    private HashSet<FieldTerrainChangedListener> terrainChangedListener = new HashSet<FieldTerrainChangedListener>();
+    private final HashSet<FieldTerrainChangedListener> terrainChangedListener = new HashSet<>();
 
     /**
      * The unit added listener.
      */
-    private HashSet<UnitAddedToFieldListener> unitAddedListener = new HashSet<UnitAddedToFieldListener>();
+    private final HashSet<UnitAddedToFieldListener> unitAddedListener = new HashSet<>();
 
     /**
      * The unit removed listener.
      */
-    private HashSet<UnitRemovedFromFieldListener> unitRemovedListener = new HashSet<UnitRemovedFromFieldListener>();
+    private final HashSet<UnitRemovedFromFieldListener> unitRemovedListener = new HashSet<>();
 
     /**
      * The units.
      */
-    private HashSet<AbstractUnit> units = new HashSet<AbstractUnit>();
+    private final HashSet<AbstractUnit> units = new HashSet<>();
 
     /**
      * The view.
@@ -198,18 +198,18 @@ public abstract class AbstractField extends GraphNode implements Serializable {
      * Fire position changed event.
      */
     protected void firePositionChangedEvent() {
-        for (FieldPositionChangedListener listener : this.positionChangedListener) {
+        this.positionChangedListener.forEach((listener) -> {
             listener.fieldPositionChanged(new FieldPositionChangedEvent(this));
-        }
+        });
     }
 
     /**
      * Fire terrain changed event.
      */
     protected void fireTerrainChangedEvent() {
-        for (FieldTerrainChangedListener listener : this.terrainChangedListener) {
+        this.terrainChangedListener.forEach((listener) -> {
             listener.fieldTerrainChanged(new FieldTerrainChangedEvent(this));
-        }
+        });
     }
 
     /**
@@ -218,10 +218,10 @@ public abstract class AbstractField extends GraphNode implements Serializable {
      * @param abstractUnit the abstract unit
      */
     protected void fireUnitAddedEvent(AbstractUnit abstractUnit) {
-        for (UnitAddedToFieldListener listener : this.unitAddedListener) {
+        this.unitAddedListener.forEach((listener) -> {
             listener.unitAddedToField(new UnitAddedToFieldEvent(this,
                     abstractUnit));
-        }
+        });
     }
 
     /**
@@ -230,10 +230,10 @@ public abstract class AbstractField extends GraphNode implements Serializable {
      * @param abstractUnit the abstract unit
      */
     protected void fireUnitRemovedEvent(AbstractUnit abstractUnit) {
-        for (UnitRemovedFromFieldListener listener : this.unitRemovedListener) {
+        this.unitRemovedListener.forEach((listener) -> {
             listener.unitRemovedFromField(new UnitRemovedFromFieldEvent(this,
                     abstractUnit));
-        }
+        });
     }
 
     /**
@@ -303,7 +303,7 @@ public abstract class AbstractField extends GraphNode implements Serializable {
      * @return the neighbors
      */
     public HashSet<AbstractField> getNeighbors() {
-        HashSet<AbstractField> hashSet = new HashSet<AbstractField>();
+        HashSet<AbstractField> hashSet = new HashSet<>();
 
         for (int direction = 0; direction < this.getDirections(); direction++) {
             hashSet.add(this.getNeighbor(direction));

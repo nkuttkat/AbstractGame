@@ -58,7 +58,7 @@ public abstract class AbstractArbiter implements Serializable {
      */
     public AbstractArbiter(AbstractGame game) {
         this.game = game;
-        this.playerQueue = new LinkedList<AbstractPlayer>();
+        this.playerQueue = new LinkedList<>();
     }
 
     /**
